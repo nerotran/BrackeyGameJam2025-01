@@ -60,7 +60,7 @@ public class Tool_Equpping : MonoBehaviour
                 
 
                 // Optional: Reset position relative to parent
-                eq.transform.localPosition = new Vector3(0.4f,0,0.5f);
+                eq.transform.localPosition = new Vector3(0.3f,0.6f,0.3f);
                 eq.transform.localRotation = Quaternion.identity;
                 flashlight = equipped.GetComponentInChildren<Light>();
                 
