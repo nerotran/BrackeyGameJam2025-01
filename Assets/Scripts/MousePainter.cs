@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MousePainter : MonoBehaviour{
@@ -7,9 +8,13 @@ public class MousePainter : MonoBehaviour{
     [Space]
     public Color paintColor;
     
-    public float radius = 1;
+    public float maxRadius = 1;
+
+    public float minRadius = 0.3f;
     public float strength = 1;
     public float hardness = 1;
+    public float maxDistance = 10.0f;
+    public float minDistance = 1.0f;
 
     void Update(){
 
@@ -21,7 +26,13 @@ public class MousePainter : MonoBehaviour{
             Ray ray = cam.ScreenPointToRay(position);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100.0f)){
+            if (Physics.Raycast(ray, out hit, 100f)){
+                float distance = hit.distance;
+                
+
+                float radius = Math.Max((1 - Math.Max(maxDistance - distance,minDistance))/maxDistance * maxRadius,minRadius);
+                
+
                 Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.red);
                 transform.position = hit.point;
                 Paintable p = hit.collider.GetComponent<Paintable>();

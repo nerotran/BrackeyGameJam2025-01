@@ -34,11 +34,11 @@ public class Tool_Equpping : MonoBehaviour
             equip(eq3);    
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
-            if (equipped != null && flashlight != null) {
-                flashlight.enabled = !flashlight.enabled;
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        //     if (equipped != null && flashlight != null) {
+        //         flashlight.enabled = !flashlight.enabled;
+        //     }
+        // }
 
     }
 
