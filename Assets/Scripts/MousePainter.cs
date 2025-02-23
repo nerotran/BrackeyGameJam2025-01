@@ -6,7 +6,7 @@ public class MousePainter : MonoBehaviour{
     [Space]
     public bool mouseSingleClick;
     [Space]
-    public Color paintColor;
+    public FlexibleColorPicker fcp;
     
     public float maxRadius = 1;
 
@@ -37,7 +37,7 @@ public class MousePainter : MonoBehaviour{
                 transform.position = hit.point;
                 Paintable p = hit.collider.GetComponent<Paintable>();
                 if(p != null){
-                    PaintManager.instance.paint(p, hit.point, radius, hardness, strength, paintColor);
+                    PaintManager.instance.paint(p, hit.point, radius, hardness, strength, fcp.color);
                 }
             }
         }
